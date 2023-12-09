@@ -127,7 +127,7 @@ Model performance metrics
 
 While Detectron2 shows promise in handling medium-sized objects within images, its performance on smaller objects in a noisy dataset, like the one in this project, can be challenging. For more in-depth microscopic image analysis, tools like <a href="https://www.arivis.com/">Arivis</a> from Zeiss may offer superior capabilities. However, for instance segmentation applications in aquaculture, where there's less variance in object sizes, Detectron2 is very promising. An example of its practical application is monitoring the growth of sea cucumbers in aquaculture hatcheries, where its capabilities are well-aligned with the task requirements.
 
-In a comparative experiment with this dataset, I evaluated both Detectron2 and YOLOv8. The results indicated that, for this particular task, Detectron2 demonstrated superior performance over YOLOv8.
+In a comparative experiment with this dataset, I evaluated both Detectron2 and YOLOv8. The results indicated that, for this particular task, Detectron2 demonstrated superior performance over YOLOv8 (see <a href="https://mito-app-651cbfda9bde.herokuapp.com/"> comparison images)</a>.
 
 <br>
 
