@@ -154,6 +154,7 @@ In a comparative experiment with this dataset, I evaluated both Detectron2 and Y
     -   Now, it should be running inside the interactive mode of the docker container to explore the code functionalities.
 
     -   The detectron2_1.py file is responsible for training the model. Upon completion of the training process, a folder named after the test specified at line 43 of detectron2_1.py is generated within the models/ directory. This folder contains the trained results. However, to comply with GitHub's file size restrictions, the trained results are not synchronized between the remote and local versions of this project.
+    -   It is recommended to train the model using GPU.
 
     ```python
     # ****** --------- ****** #
