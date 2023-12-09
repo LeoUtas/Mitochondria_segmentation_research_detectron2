@@ -30,37 +30,74 @@ This repository hosts the source code for an instance segmentation project, focu
 
 ### Data source
 
-This project employs a dataset comprising electron microscopy images from the CA1 region of the hippocampus, with annotated mitochondria by professionally trained researchers. The dataset is accessible at <a href="https://www.epfl.ch/labs/cvlab/data/data-em/"> Electron Microscopy Dataset</a>.
+This project utilizes an electron microscopy image dataset from the CA1 area of the hippocampus, annotated for mitochondria by highly trained researchers. For more information and access to the dataset, visit the <a href="https://www.epfl.ch/labs/cvlab/data/data-em/"> Electron Microscopy Dataset</a>.
 
 ### Data processing
 
+The original dataset came in the format of TIF images. To facilitate data processing, I created 2 Python classes called DataHandler and AnnotationHandler, which incorporates and also refines functions originally from <a href="https://www.youtube.com/watch?v=NYeJvxe5nYw"> Bhattiprolu, S., 2023</a>. The primary purpose of DataHandler and AnnotationHandler is to transform these TIF images into PNG format, and prepare annotation data in COCOJSON format as a necessary step for their use with Detectron2.
+
+The usage of DataHandler and AnnotationHandler
+
 ```python
-save_image_from_tiff()
-save_image_from_mask()
-DataHandler
+# ________________ HANDLE DATA ________________ #
+DataHandler("train", train_path, classes)
+DataHandler("test", test_path, classes)
+# ________________ HANDLE ANNOTATIONS ________________ #
+AnnotationHandler("train", path_to_train_masks, classes, category_ids)
+AnnotationHandler("test", path_to_test_masks, classes, category_ids)
 ```
 
 ### The design
 
-<img src="output/viz/code_structure.png" alt="" width="550">
+<img src="media/code_structure.png" alt="" width="680">
 
 The above diagram illustrates the fundamental architecture of this project. Below, you will find an example outline detailing the code setups necessary for experimenting with various configurations of Detectron2 for this specific task.
 
--   YOLOv8 - test1 configuration
+Model configuration for experiment was done in the file detectron2_1.py with the outline of code structure as follows:
 
 ```python
+# ________________ MAKE TRAIN DATA READY FOR TRAINING ________________ #
+...
+
+# ****** --------- ****** #
+test_name = "test0"
+note = ""
+# ****** --------- ****** #
+
+model = "COCO-InstanceSegmentation/mask_rcnn_R_50_FPN_1x.yaml"
+# ________________ MODEL CONFIGURAITON FOR EXPERIMENT ________________ #
+...
+
+trainer.train()  # Start the training process
+
+# ________________ MAKE COCO METRICS EVALUATION ________________ #
+...
+# ________________ SAVE COCO METRICS TO JSON ________________ #
+...
+# ________________ MAKE COCO METRICS TABLE AND SAVE TO .PNG ________________ #
+...
+# ________________ SAVE LOSS METRICS TO JSON ________________ #
+...
+# ________________ VISUALIZE LOSS METRICS ________________ #
+...
+# ________________ SAVE LOSS METRICS VISUALIZATION TO PNG ________________ #
+...
 
 ```
 
+After each experiment, model evaluation results were recorded in JSON and PNG files for comparision between different configurations.
+
 ### Results
 
-<h6 align="center">
-  Visualization of bird species
-</h6>
+<p align="center">
+  <img src="input/viz/train_images_visualization.png" alt="" width="800">
+</p>
 
 <p align="center">
-  <img src="input/viz/image_visualization.jpg" alt="" width="690">
+  <img src="input/viz/train_groundtruth_visualization.png" alt="" width="800">
 </p>
+
+<br>
 
 This project involved numerous experiments, but only the most significant results are highlighted here.
 
@@ -70,31 +107,35 @@ This project involved numerous experiments, but only the most significant result
 Model performance metrics
 </h6>
 
-<p align="left">
-MobileNet - test 20
+<p align="center">
+    <img src="output/viz/test15_test0_COCOmetrics.png" alt="" width="820">
 </p>
 
 <p align="center">
-    <img src="output/viz/model_performance_plot_mobilenet_finetune_test20.jpg" alt="" width="550">
-</p>
-
-<p align="left">
-YOLOv8 test0
+    <img src="output/viz/test15_loss_plot.png" alt="" width="680">
 </p>
 
 <p align="center">
-<img src="output/viz/results.png" alt="" width="550">
+    <img src="output/segm_images/test_001.png" alt="" width="680">
 </p>
 
--   YOLOv8 accuracy on test data: 98.5%
+<p align="center">
+    <img src="input/data/test/test_masks/mitochondrion/test_001.png" alt="" width="680">
+</p>
 
-The results of this project is pretty decent when compared to similar efforts addressing the task of classifying bird species using the <a href="https://www.kaggle.com/datasets/gpiosenka/100-bird-species/data"> birds 525 species- image classification dataset </a>. The highest accuracy achieved so far is approximately 98% on the test dataset (e.g., <a href="https://thesai.org/Downloads/Volume14No7/Paper_102-Bird_Detection_and_Species_Classification.pdf"> Vo, H.-T., et al. 2023</a>)
+<br>
+
+While Detectron2 shows promise in handling medium-sized objects within images, its performance on smaller objects in a noisy dataset, like the one in this project, can be challenging. For more in-depth microscopic image analysis, tools like <a href="https://www.arivis.com/">Arivis</a> from Zeiss may offer superior capabilities. However, for instance segmentation applications in aquaculture, where there's less variance in object sizes, Detectron2 is very promising. An example of its practical application is monitoring the growth of sea cucumbers in aquaculture hatcheries, where its capabilities are well-aligned with the task requirements.
+
+In a comparative experiment with this dataset, I evaluated both Detectron2 and YOLOv8. The results indicated that, for this particular task, Detectron2 demonstrated superior performance over YOLOv8.
+
+<br>
 
 ### How to use the source code
 
 ##### Using the source code for development
 
--   Fork this repository (https://github.com/LeoUtas/bird_classification_research.git).
+-   Fork/clone this repository (https://github.com/LeoUtas/bird_classification_research.git).
 -   First thing first, before proceeding, ensure that you are in the root directory of the project.
 -   Get the docker container ready:
 
@@ -131,5 +172,7 @@ Best,
 Hoang Ng
 
 ### Reference
+
+Bhattiprolu, S. (2023, Sep 20). 332 - All about image annotations​ [Video]. YouTube. https://www.youtube.com/watch?v=NYeJvxe5nYw
 
 Wu, Y., Kirillov, A., Massa, F., Lo, W.-Y., & Girshick, R. (2019). Detectron2. Retrieved from https://github.com/facebookresearch/detectron2
