@@ -24,9 +24,13 @@ This repository hosts the source code for an instance segmentation project, focu
 -   Pytorch
 -   Detectron2
 -   Opencv
+-   numpy
 -   pandas
+-   scikit-image
+-   leafmap
+-   matplotlib
+-   seaborn
 -   Docker
--   Github action
 
 ### Data source
 
