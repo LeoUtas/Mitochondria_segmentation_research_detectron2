@@ -152,6 +152,16 @@ In a comparative experiment with this dataset, I evaluated both Detectron2 and Y
     ```
 
     -   Now, it should be running inside the interactive mode of the docker container to explore the code functionalities.
+
+    -   The detectron2_1.py file is responsible for training the model. Upon completion of the training process, a folder named after the test specified at line 43 of detectron2_1.py is generated within the models/ directory. This folder contains the trained results. However, to comply with GitHub's file size restrictions, the trained results are not synchronized between the remote and local versions of this project.
+
+    ```python
+    # ****** --------- ****** #
+    test_name = "name of the test"
+    note = ""
+    # ****** --------- ****** #
+    ```
+
     -   When you're done, you can simply type "exit" to escape the development environment
 
     ```
@@ -160,9 +170,9 @@ In a comparative experiment with this dataset, I evaluated both Detectron2 and Y
 
 -   Also, stop running the container when you're done:
 
-    ```cmd
-    docker stop <name of the container>
-    ```
+```cmd
+docker stop <name of the container>
+```
 
 ### The bottom line
 
