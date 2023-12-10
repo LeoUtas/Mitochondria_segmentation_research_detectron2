@@ -119,9 +119,19 @@ Model performance metrics
     <img src="output/viz/test15_loss_plot.png" alt="" width="680">
 </p>
 
+<h6 align="center">
+Visualization of prediction on an unseen image (name: test_001.png)
+</h6>
+
 <p align="center">
     <img src="output/segm_images/test_001.png" alt="" width="680">
 </p>
+
+<h6 align="center">
+Visualization of the ground truth for the predicted image (name: test_001.png)
+</h6>
+
+<br>
 
 <p align="center">
     <img src="input/data/test/test_masks/mitochondrion/test_001.png" alt="" width="680">
