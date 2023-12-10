@@ -21,6 +21,10 @@ This repository hosts the source code for an instance segmentation project, focu
 
 ### Technical tools
 
+The orginal paper of Detectron2 <a href="https://github.com/facebookresearch/detectron2/blob/main/README.md"> (Wu et al., 2019) </a>.
+
+The application documentation of <a href="https://detectron2.readthedocs.io/en/latest/"> Detectron2 </a> by Facebook research.
+
 -   Pytorch
 -   Detectron2
 -   Opencv
