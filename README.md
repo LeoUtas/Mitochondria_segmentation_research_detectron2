@@ -127,11 +127,11 @@ Visualization of prediction on an unseen image (name: test_001.png)
     <img src="output/segm_images/test_001.png" alt="" width="680">
 </p>
 
+<br>
+
 <h6 align="center">
 Visualization of the ground truth for the predicted image (name: test_001.png)
 </h6>
-
-<br>
 
 <p align="center">
     <img src="input/data/test/test_masks/mitochondrion/test_001.png" alt="" width="680">
