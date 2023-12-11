@@ -153,7 +153,7 @@ In a comparative experiment with this dataset, I evaluated both Detectron2 and Y
 
 ##### Using the source code for development
 
--   Fork/clone this repository (https://github.com/LeoUtas/bird_classification_research.git).
+-   Fork/clone this repository (https://github.com/LeoUtas/Mitochondria_segmentation_research_detectron2.git).
 -   First thing first, before proceeding, ensure that you are in the root directory of the project.
 -   Get the docker container ready:
 
@@ -172,13 +172,18 @@ In a comparative experiment with this dataset, I evaluated both Detectron2 and Y
     -   Now, it should be running inside the interactive mode of the docker container to explore the code functionalities.
 
     -   The detectron2_1.py file is responsible for training the model. Upon completion of the training process, a folder named after the test specified at line 43 of detectron2_1.py is generated within the models/ directory. This folder contains the trained results. However, to comply with GitHub's file size restrictions, the trained results are not synchronized between the remote and local versions of this project.
-    -   It is recommended to train the model using GPU.
 
     ```python
     # ****** --------- ****** #
     test_name = "name of the test"
     note = ""
     # ****** --------- ****** #
+    ```
+
+    -   Note: a quick and easy way to test model training is to run the file detectron2_1.py using CPU, for this purpose it requires to make use of the line 74 in detectron2_1.py. However, training a computer vision on CPU is not efficient. It is highly recommended to forlow instructions in <a href="https://detectron2.readthedocs.io/en/latest/tutorials/install.html"> detectron2 installation </a> and <a href="https://pytorch.org/"> pytorch installation </a> for setting up the model training using GPU.
+
+    ```python
+    # cfg.MODEL.DEVICE = "cpu"
     ```
 
     -   When you're done, you can simply type "exit" to escape the development environment

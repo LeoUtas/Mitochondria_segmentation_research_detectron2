@@ -4,6 +4,7 @@ from detectron2.utils.logger import setup_logger
 from detectron2.data.datasets import register_coco_instances
 from detectron2.evaluation import COCOEvaluator, inference_on_dataset
 from detectron2.engine import DefaultTrainer, DefaultPredictor
+from detectron2.config import get_cfg
 from time import time
 
 setup_logger()
@@ -40,7 +41,7 @@ start_time = time()
 
 
 # ****** --------- ****** #
-test_name = "test19"
+test_name = "test20"
 note = "train-test reversed images\nrandom init weights"
 # ****** --------- ****** #
 
@@ -69,6 +70,9 @@ number_classes = get_num_classes(str(train_metadata))
 cfg = get_cfg()
 cfg.OUTPUT_DIR = os.path.join(script_path, test_name)
 cfg.merge_from_file(model_zoo.get_config_file(model))
+
+# cfg.MODEL.DEVICE = "cpu"
+
 cfg.DATASETS.TRAIN = "train"
 cfg.DATASETS.TEST = ()
 cfg.DATALOADER.NUM_WORKERS = num_workers
