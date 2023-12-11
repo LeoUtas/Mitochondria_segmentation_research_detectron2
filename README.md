@@ -150,7 +150,7 @@ In a comparative experiment with this dataset, I evaluated both Detectron2 and Y
 
 ### How to use the source code
 
-##### Using the source code for development
+##### Using the source code
 
 -   Fork/clone this repository (https://github.com/LeoUtas/Mitochondria_segmentation_research_detectron2.git).
 -   First thing first, before proceeding, ensure that you are in the root directory of the project.
