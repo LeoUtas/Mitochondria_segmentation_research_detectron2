@@ -179,11 +179,13 @@ In a comparative experiment with this dataset, I evaluated both Detectron2 and Y
     # ****** --------- ****** #
     ```
 
-    -   Note: a quick and easy way to test model training is to run the file detectron2_1.py using CPU, for this purpose it requires to make use of the line 74 in detectron2_1.py. However, training a computer vision on CPU is not efficient. It is highly recommended to forlow instructions in <a href="https://detectron2.readthedocs.io/en/latest/tutorials/install.html"> detectron2 installation </a> and <a href="https://pytorch.org/"> pytorch installation </a> for setting up the model training using GPU.
+    -   Note: a quick and easy way to test model training is to run the file detectron2_1.py using CPU. It requires to make use of the line 74 in detectron2_1.py.
 
     ```python
     # cfg.MODEL.DEVICE = "cpu"
     ```
+
+    -   However, training a computer vision on CPU is not efficient. It is highly recommended to forlow instructions in <a href="https://detectron2.readthedocs.io/en/latest/tutorials/install.html"> detectron2 installation </a> and <a href="https://pytorch.org/"> pytorch installation </a>. This will ensure proper setup for GPU-based model training, which significantly accelerates the process.
 
     -   When you're done, you can simply type "exit" to escape the development environment
 
@@ -196,6 +198,7 @@ In a comparative experiment with this dataset, I evaluated both Detectron2 and Y
 ```cmd
 docker stop <name of the container>
 ```
+
 I'm excited to share this repository! Please feel free to explore its functionalities. Thank you for this far. Have a wonderful day ahead!
 
 Best,
