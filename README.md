@@ -16,7 +16,34 @@
 
 ### Introduction
 
-This repository hosts the source code for an instance segmentation project, focusing on segmenting mitochondria in microscopic images. Detectron2 <a href="https://github.com/facebookresearch/detectron2/blob/main/README.md"> (Wu et al., 2019) </a> has been utilized as the primary tool for this task.
+<ul style="padding-left: 20px; list-style-type: circle;">
+        <li>The project includes 5 repositories:
+            <ul>
+                <li>
+                <a href="https://github.com/LeoUtas/Mitochondria_segmentation_research_detectron2.git" style="text-decoration: none; color: #3498db;">Mitochondria instance segmentation research using Detectron2</a>
+                </li>
+                <li>
+                <a href="https://github.com/LeoUtas/Mitochondria_segmentation_research_YOLOv8.git" style="text-decoration: none; color: #3498db;">Mitochondria instance segmentation research using YOLOv8</a>
+                </li>                
+                <li>
+               <a href="https://github.com/LeoUtas/Mitochondria_segmentation_flask_detectron2.git" style="text-decoration: none; color: #3498db;">Mitochondria instance segmentation web application using Detectron2</a>
+                </li>
+                <li>
+                <a href="https://github.com/LeoUtas/Mitochondria_segmentation_flask_YOLOv8.git" style="text-decoration: none; color: #3498db;">Mitochondria instance segmentation web application using YOLOv8</a>
+                </li>
+                <li>
+                <a href="https://github.com/LeoUtas/Mitochondria_segmentation_flask_2models.git">Mitochondria instance segmentation web application using Detectron2 and YOLOv8 for better comparison</a>
+                </li>
+            </ul>
+        </li>
+        <br>
+        <li>
+            I attempted to solve the mitochondria instance segmentation using 2 different tools (i.e., <a href="https://github.com/facebookresearch/detectron2/blob/main/README.md">Detectron</a> and <a href="https://github.com/ultralytics/ultralytics"> YOLOv8 </a>). The results indicated that, for this particular task, Detectron2 demonstrated superior performance over YOLOv8. However, in some cases, YOLOv8 performed better on the task of object detection.
+            Detectron2 was chosen to deploy on a web application for this instance segmentation tasks <a href="https://mito-app-651cbfda9bde.herokuapp.com/">(visit the live demo)</a>.
+        </li>        
+    </ul>
+
+This repository hosts the source code for mitochondria instance segmentation research using Detectron2.
 
 ### Technical tools
 
@@ -26,6 +53,7 @@ The application documentation of <a href="https://detectron2.readthedocs.io/en/l
 
 -   Pytorch
 -   Detectron2
+-   YOLOv8
 -   Opencv
 -   numpy
 -   pandas
